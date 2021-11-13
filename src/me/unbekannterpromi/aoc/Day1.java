@@ -29,6 +29,21 @@ public class Day1 extends Day {
 
     @Override
     public void run2() {
+        ArrayList<String> lines = file2.readLines();
 
+        int[] Liste = new int[lines.size()];
+        for (int i = 0; i < lines.size(); i++) {
+            Liste[i] = Integer.parseInt(lines.get(i));
+        }
+
+        for (int i = 0; i < Liste.length; i++) {
+            for(int z = i+1; z < Liste.length; z++) {
+                for(int x = z+1; x < Liste.length; x++) {
+                    if (Liste[i] + Liste[z] + Liste[x] == 2020) {
+                        System.out.println(Liste[i] * Liste[z] * Liste[x]);
+                    }
+                }
+            }
+        }
     }
 }
