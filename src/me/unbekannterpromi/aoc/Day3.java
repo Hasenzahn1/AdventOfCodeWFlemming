@@ -1,5 +1,6 @@
 package me.unbekannterpromi.aoc;
 import me.aoc.Day;
+import me.util.AoCFile;
 
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -7,15 +8,15 @@ import java.util.ArrayList;
 public class Day3 extends Day {
 
 
-    public Day3(String fileName1, String fileName2) {
-        super(fileName1, fileName2);
+    public Day3() {
+        super();
     }
 
     @Override
-    public void run1() {
+    public void run1(AoCFile file) {
 
 
-        ArrayList<String> lines = file1.readLines();
+        ArrayList<String> lines = file.readLines();
         for(int i = 0; i < lines.size(); i++) {
             for (int z = 0; z < 5; z++) {
                 lines.set(i, lines.get(i) + lines.get(i));
@@ -35,10 +36,10 @@ public class Day3 extends Day {
     }
 
     @Override
-    public void run2() {
+    public void run2(AoCFile file) {
 
 
-        ArrayList<String> lines = file2.readLines();
+        ArrayList<String> lines = file.readLines();
         for(int i = 0; i < lines.size(); i++) {
             for (int z = 0; z < 10; z++) {
                 lines.set(i, lines.get(i) + lines.get(i));

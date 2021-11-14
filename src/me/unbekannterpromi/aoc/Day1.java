@@ -1,18 +1,19 @@
 package me.unbekannterpromi.aoc;
 
 import me.aoc.Day;
+import me.util.AoCFile;
 
 import java.util.ArrayList;
 
 public class Day1 extends Day {
-    public Day1(String fileName1, String fileName2) {
-        super(fileName1, fileName2);
+    public Day1() {
+        super();
     }
 
     @Override
-    public void run1() {
+    public void run1(AoCFile file) {
 
-        ArrayList<String> lines = file1.readLines();
+        ArrayList<String> lines = file.readLines();
 
         int[] Liste = new int[lines.size()];
         for (int i = 0; i < lines.size(); i++) {
@@ -28,8 +29,8 @@ public class Day1 extends Day {
     }
 
     @Override
-    public void run2() {
-        ArrayList<String> lines = file2.readLines();
+    public void run2(AoCFile file) {
+        ArrayList<String> lines = file.readLines();
 
         int[] Liste = new int[lines.size()];
         for (int i = 0; i < lines.size(); i++) {

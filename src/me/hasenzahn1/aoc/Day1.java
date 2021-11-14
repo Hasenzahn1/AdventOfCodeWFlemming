@@ -1,17 +1,18 @@
 package me.hasenzahn1.aoc;
 
 import me.aoc.Day;
+import me.util.AoCFile;
 
 
 public class Day1 extends Day {
 
-    public Day1(String fileName1, String fileName2) {
-        super(fileName1, fileName2);
+    public Day1() {
+        super();
     }
 
     @Override
-    public void run1() {
-        int[] values = file1.readLines().stream().map(Integer::parseInt).mapToInt(x -> x).toArray();
+    public void run1(AoCFile file) {
+        int[] values = file.readLines().stream().map(Integer::parseInt).mapToInt(x -> x).toArray();
         for(int x = 0; x < values.length; x++){
             for (int y = x + 1; y < values.length; y++){
                 if(values[x] + values[y] == 2020){
@@ -24,8 +25,8 @@ public class Day1 extends Day {
     }
 
     @Override
-    public void run2() {
-        int[] values = file2.readLines().stream().map(Integer::parseInt).mapToInt(x -> x).toArray();
+    public void run2(AoCFile file) {
+        int[] values = file.readLines().stream().map(Integer::parseInt).mapToInt(x -> x).toArray();
         for(int x = 0; x < values.length; x++){
             for (int y = x + 1; y < values.length; y++){
                 for (int z = y + 1; z < values.length; z++) {

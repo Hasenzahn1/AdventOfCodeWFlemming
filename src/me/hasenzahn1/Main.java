@@ -1,15 +1,14 @@
 package me.hasenzahn1;
 
-import me.aoc.Day;
-import me.hasenzahn1.aoc.Day1;
+import me.aoc.DayManager;
+import me.aoc.Day_Identifier;
+import me.aoc.Main_toimpl;
 
-public class Main {
+public class Main extends Main_toimpl {
 
     public static void main(String[] args) {
-        Day day1 = new Day1("inputFiles/2020/Hasenzahn1/Day1_1.txt", "inputFiles/2020/Hasenzahn1/Day1_1.txt");
-        System.out.println("###################Running Part 1###################");
-        day1.run1();
-        System.out.println("###################Running Part 2###################");
-        day1.run2();
+        DayManager manager = new DayManager(Main.class.getName(), DayManager.Year._2020, Day_Identifier.DAY_1);
+        manager.run();
+
     }
 }
