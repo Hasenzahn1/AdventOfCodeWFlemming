@@ -17,6 +17,8 @@ public abstract class Day {
     }
 
     public abstract void run1();
+
+
     public abstract void run2();
 
 }
