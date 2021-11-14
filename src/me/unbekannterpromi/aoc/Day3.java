@@ -2,7 +2,7 @@ package me.unbekannterpromi.aoc;
 import me.aoc.Day;
 import me.util.AoCFile;
 
-import java.sql.SQLOutput;
+
 import java.util.ArrayList;
 
 public class Day3 extends Day {
