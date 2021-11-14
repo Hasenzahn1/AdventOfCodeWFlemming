@@ -29,6 +29,14 @@ public class AoCFile extends RandomAccessFile {
         }
     }
 
+    public String readCompleteFile(){
+        StringBuilder sb = new StringBuilder();
+        for (String s : readLines()){
+            sb.append(s).append("\n");
+        }
+        return sb.toString();
+    }
+
     @Override
     public int read() {
         try {
