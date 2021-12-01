@@ -6,9 +6,6 @@ import me.util.AoCFile;
 
 public class Day1 extends Day {
 
-    public Day1() {
-        super();
-    }
 
     @Override
     public void run1(AoCFile file) {

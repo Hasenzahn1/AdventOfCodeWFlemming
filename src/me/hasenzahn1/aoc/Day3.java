@@ -6,11 +6,7 @@ import me.util.AoCFile;
 import java.util.ArrayList;
 
 public class Day3 extends Day {
-
-    public Day3() {
-        super();
-    }
-
+    
     @Override
     public void run1(AoCFile file) {
         int x = 0;

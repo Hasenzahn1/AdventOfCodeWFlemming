@@ -4,13 +4,7 @@ package me.hasenzahn1.aoc;
 import me.aoc.Day;
 import me.util.AoCFile;
 
-import java.util.Arrays;
-
 public class Day2 extends Day {
-
-    public Day2() {
-        super();
-    }
 
     @Override
     public void run1(AoCFile file) {
