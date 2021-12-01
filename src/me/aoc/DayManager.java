@@ -34,7 +34,7 @@ public class DayManager {
     public void run() {
         try {
             String name = main.split("\\.")[1];
-            String pck = "me." + name + ".aoc.";
+            String pck = "me." + name + ".aoc._" + year.year + ".";
             String classToCall = pck + day.getClassName();
             Day test = (Day) Class.forName(classToCall).newInstance();
 

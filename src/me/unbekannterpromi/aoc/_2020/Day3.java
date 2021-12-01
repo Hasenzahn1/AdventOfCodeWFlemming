@@ -1,4 +1,4 @@
-package me.unbekannterpromi.aoc;
+package me.unbekannterpromi.aoc._2020;
 import me.aoc.Day;
 import me.util.AoCFile;
 
