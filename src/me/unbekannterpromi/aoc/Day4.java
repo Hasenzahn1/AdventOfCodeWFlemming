@@ -17,44 +17,66 @@ public class Day4 extends Day {
         String[] splitinput = input.split("\n\n");
 
         int zeahler = 0;
-        String[] fieldseinzeln = new String[17];
         for (int i = 0; i < splitinput.length; i++) {
 
             //hier werden fields einzeln gemacht
-            String[] einzelnes = splitinput[i].split(" |\n");
+            splitinput[i]= splitinput[i].replace("\n"," ");
+            String[] einzelnes = splitinput[i].split(" ");
 
-            for (int t = 0; t < einzelnes.length; t++) {
-                //hier werden amount und field getrennt
-                fieldseinzeln = einzelnes[t].split(":");
-            }
 
-            String[] fields = new String[9];
-
-            //amounts wegfallen lassen
-            for (int z = 0; z < fieldseinzeln.length / 2; z++) {
-
-                fields[z] = fieldseinzeln[z * 2];
-            }
-
-             if (fields.length == 7) {
-
-                for (int x = 0; x < fields.length; x++) {
-                    if (fields[i] == "cid") {
-
-                    } else {
-                        zeahler++;
-                    }
-                }
-
-            } else if (fields.length == 8){
+            if (einzelnes.length == 8){
                 zeahler++;
-            }
+            }else if (einzelnes.length == 7) {
+                boolean IstCIDdadrinnen =false;
+                 for (int x = 0; x < 7; x++) {
+                     if (einzelnes[x].startsWith("cid")) {
+                         IstCIDdadrinnen = true;
+                         break;
+                     }
+                 }
+                 if (!IstCIDdadrinnen) {
+                     zeahler++;
+                 }
+             }
         }
         System.out.println(zeahler);
     }
 
     @Override
     public void run2(AoCFile file) {
+        String input = file.readCompleteFile();
+        //kompletter input zu pässen auseinandergeschustert
+        String[] splitinput = input.split("\n\n");
 
+        int zeahler = 0;
+        for (int i = 0; i < splitinput.length; i++) {
+
+            //hier werden fields einzeln gemacht
+            splitinput[i]= splitinput[i].replace("\n"," ");
+            String[] einzelnes = splitinput[i].split(" ");
+
+            boolean cidcheck =false;
+            boolean byrcheck = false;
+            if (einzelnes.length == 8){
+                cidcheck = true;
+            }else if (einzelnes.length == 7) {
+
+                for (int x = 0; x < 7; x++) {
+                    if (einzelnes[x].startsWith("cid")) {
+                        cidcheck = true;
+                        break;
+                    }
+                }
+
+            }
+            if (!cidcheck) {
+                for (int u= 0; u < einzelnes.length; u++) {
+                    if (einzelnes[u].startsWith("byr")) {
+
+                    }
+                }
+            }
+        }
+        System.out.println(zeahler);
     }
 }
