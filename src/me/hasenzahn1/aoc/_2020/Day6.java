@@ -15,7 +15,7 @@ public class Day6 extends Day {
         int amount = 0;
         for(String part : parts){
             ArrayList<Character> chars = new ArrayList<>();
-            for(char c : part.strip().toCharArray()){
+            for(char c : part.toCharArray()){
                 if (!chars.contains(c) && c != '\n'){
                     chars.add(c);
                 }
