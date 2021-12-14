@@ -39,12 +39,19 @@ public class DayManager {
             Day test = (Day) Class.forName(classToCall).newInstance();
 
             System.out.println("#############Running Exercise 1#############");
-            test.run1(new AoCFile("inputFiles/" + year.getYear() + "/" + name + "/" + day.getClassName() + ".txt", "rw"));
+            try{
+                test.run1(new AoCFile("inputFiles/" + year.getYear() + "/" + name + "/" + day.getClassName() + ".txt", "rw"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
 
-            System.out.println("#############Running Exercise 2#############");
-            test.run2(new AoCFile("inputFiles/" + year.getYear() + "/" + name + "/" + day.getClassName() + ".txt", "rw"));
-
-        }catch (ClassNotFoundException | InstantiationException | IllegalAccessException | FileNotFoundException e){
+            try {
+                System.out.println("#############Running Exercise 2#############");
+                test.run2(new AoCFile("inputFiles/" + year.getYear() + "/" + name + "/" + day.getClassName() + ".txt", "rw"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }catch (ClassNotFoundException | InstantiationException | IllegalAccessException e){
             e.printStackTrace();
         }
 
