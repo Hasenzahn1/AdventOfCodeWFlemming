@@ -18,7 +18,7 @@ public class Day14 extends Day {
             String[] s = lines.get(i).split(" -> ");
             compare.put(s[0], s[1]);
         }
-        for(int i = 0; i < 10; i++){
+        for(int i = 0; i < 3; i++){
             StringBuffer newInstruction = new StringBuffer(instruction);
 
             for(int j = 0; j < instruction.length() - 1; j++){
@@ -44,37 +44,43 @@ public class Day14 extends Day {
     @Override
     public void run2(AoCFile file) {
         ArrayList<String> lines = file.readLines();
-        String instText = lines.get(0);
-        ArrayList<String> instruction = Arrays.asList(lines.get(0).toCharArray()).stream().map(String::new).collect(Collectors.toCollection(ArrayList::new));
+        char[] instruction = lines.get(0).toCharArray();
+        long length = instruction.length;
         HashMap<String, String> compare = new HashMap<>();
         for(int i = 2; i < lines.size(); i++){
             String[] s = lines.get(i).split(" -> ");
             compare.put(s[0], s[1]);
         }
-        for(int i = 0; i < 4; i++){
-            ArrayList<String> instCopy = (ArrayList<String>) instruction.clone();
-
-            for(Map.Entry<String, String> entry : compare.entrySet()){
-                int[] indices = IntStream.range(0, instCopy.size() - 1)
-                        .filter(z -> entry.getKey().equals(instText.charAt(z) + "" + instText.charAt(z + 1)))
-                        .toArray();
-                System.out.println(indices.length);
-
-                for(int j = indices.length - 1; j >= 0; j--){
-                    instCopy.add(j + 1, entry.getValue());
-                }
+        System.out.println(compare);
+        for(int i = 0; i < 40; i++){
+            length = length * 2 + 1;
+            //ArrayList<Character> newInst = new ArrayList<>();
+            for(int j = 0; j < 100; j++){
+                //newInst.add(new ArrayList<Character>());
             }
-            instruction = instCopy;
-            System.out.println(instCopy);
+            char[] newInst = new char[(int) length];
+            int counter = 0;
+            for(char c : instruction){
+                newInst[counter] = c;
+                counter += 2;
+            }
+            String inst = String.valueOf(instruction);
+            for(Map.Entry<String, String> entry : compare.entrySet()){
+                int index = inst.indexOf(entry.getKey());
+                if(index != -1) {
+                    newInst[index * 2 + 1] = entry.getValue().charAt(0);
+                }
+                while (index >= 0) {
+                    index = inst.indexOf(entry.getKey(), index + 1);
+                    if(index != -1) {
+                        newInst[index * 2 + 1] = entry.getValue().charAt(0);
+                    }
+                }
+                //System.out.println(indices);
+            }
+            instruction = newInst;
+            System.out.println(i  + ": " + instruction.length);
+            //System.out.println(String.valueOf(newInst));
         }
-
-        HashMap<String, Long> amounts = new HashMap<>();
-        for(String c : instruction){
-            if(!amounts.containsKey(c + "")) amounts.put(c + "", 0L);
-            amounts.replace(c + "", amounts.get(c + "") + 1);
-        }
-        ArrayList<Long> sortedAmounts = new ArrayList<>(amounts.values());
-        Collections.sort(sortedAmounts);
-        System.out.println(sortedAmounts.get(sortedAmounts.size() - 1) - sortedAmounts.get(0));
     }
 }

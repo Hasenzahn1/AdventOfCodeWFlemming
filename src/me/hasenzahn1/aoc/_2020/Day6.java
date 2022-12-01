@@ -14,6 +14,7 @@ public class Day6 extends Day {
         String[] parts = input.split("\n\n");
         int amount = 0;
         for(String part : parts){
+            System.out.println(part);
             ArrayList<Character> chars = new ArrayList<>();
             for(char c : part.toCharArray()){
                 if (!chars.contains(c) && c != '\n'){

@@ -8,7 +8,8 @@ public class DayManager {
 
     public enum Year{
         _2020("2020"),
-        _2021("2021");
+        _2021("2021"),
+        _2022("2022");
 
         private final String year;
 
